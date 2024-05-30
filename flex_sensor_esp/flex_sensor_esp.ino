@@ -16,6 +16,8 @@ void loop() {
  float Vflex = ADCflex * VCC / 4095.0; // ESP32 has a 12-bit ADC, so the maximum value is 4095
  float Rflex = R_DIV * (VCC / Vflex - 1.0);
  Serial.println("Resistance: " + String(Rflex) + " ohms");
+ // adding a print statement to view the analogy reading 
+ Serial.println("Analogy Value: " + ADCflex );
 
  // Use the calculated resistance to estimate the sensor's bend angle:
  float angle = map(Rflex, flatResistance, bendResistance, 0, 90.0);
